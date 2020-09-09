@@ -1,4 +1,9 @@
+{% extends 'polls/base.html' %}
+{% block app_content %}
 {% if question_list %}
+<div class="page-header">
+    <h1><a href="{% url 'polls:index' %}">Polls</a></h1>
+</div>
 <ul>
     {% for question in question_list %}
     <li><a href="{% url 'polls:detail' question.id %}">
@@ -8,3 +13,5 @@
 {% else %}
 <p> No Polls are avilable</p>
 {% endif %}
+
+{% endblock %}
